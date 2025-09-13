@@ -1,0 +1,51 @@
+﻿<Application x:Class="PopupNotification.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:PopupNotification"
+             xmlns:tb="http://www.hardcodet.net/taskbar"
+             ShutdownMode="OnExplicitShutdown">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <md:BundledTheme BaseTheme="Light" PrimaryColor="Cyan" SecondaryColor="Blue" ColorAdjustment="{md:ColorAdjustment}" />
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <tb:TaskbarIcon x:Key="NotifyIcon"
+                Visibility="Visible"
+                ToolTipText="Emmanuel Notification Popup App"
+                IconSource="emmanuel.ico"
+                MenuActivation="LeftOrRightClick">
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem>
+                            <MenuItem.Header>
+                                <DockPanel>
+                                    <Button Command="{local:SettingsCommand}" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFlatButton}">
+                                        <md:PackIcon Kind="Cog" />
+                                    </Button>
+                                    <Border DockPanel.Dock="Right" 
+                                            Width="1" 
+                                            Margin="5,2" 
+                                            Background="{DynamicResource MaterialDesignBodyLight}" 
+                                            SnapsToDevicePixels="True" />
+                                    <Button Command="{local:ShowSendMessageWindowCommand}" Style="{StaticResource MaterialDesignFlatButton}" 
+                                            Foreground="{StaticResource MaterialDesign.Brush.Foreground}" FontWeight="Normal" FontSize="16"
+                                            Margin="-16 0 0 0">
+                                        Send Message
+                                    </Button>
+                                </DockPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="Exit" Command="{local:ShutdownCommand}">
+                        </MenuItem>
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
+        </ResourceDictionary>
+        
+      
+    </Application.Resources>
+</Application>
