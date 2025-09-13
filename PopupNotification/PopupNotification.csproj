@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
 	<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+	<ApplicationIcon>emmanuel.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
