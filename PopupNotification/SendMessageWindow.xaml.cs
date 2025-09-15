@@ -1,13 +1,22 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
-namespace PopupNotification;
-/// <summary>
-/// Interaction logic for PopupWindow.xaml
-/// </summary>
-public partial class SendMessageWindow : Window
+namespace PopupNotification
 {
-    public SendMessageWindow()
+    /// <summary>
+    /// Interaction logic for PopupWindow.xaml
+    /// </summary>
+    public partial class SendMessageWindow : Window
     {
-        InitializeComponent();
+        public SendMessageWindow()
+        {
+            InitializeComponent();
+            ContentRendered += OnContentRendered;
+        }
+
+        private void OnContentRendered(object? sender, EventArgs e)
+        {
+            Message.Focus();
+        }
     }
 }
